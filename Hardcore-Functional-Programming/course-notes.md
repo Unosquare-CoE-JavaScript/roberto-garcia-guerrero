@@ -110,3 +110,18 @@ const getPort = () => {
 console.log(getPort()) // error: 8080, success: port 
 
 ```
+
+## Task Monad
+Is a data type that lets you create and compose *asynchronous functions* in pure functional way.
+* Task is describes as *Lazy Promise*. While Promises start their computations as soon as they are created. Tasks don't do anything until you call `.fork` method. When you call `.fork`, you're essentially calling the `(reject, resolve) => ` function passed into the `Task` constructor. This triggers a *fork* in your code, where asynchronous operations continue to happen after the *fork*, and the `Task` computation can happen asynchronously from that point in time.
+
+```javascript
+import {Task} from 'types';
+
+const t1 = Task((rej, res) => res(2))
+                .map(two => two + 1)
+                .map(three => three * 2)
+
+// it will run until we fork the task
+t1.fork(console.error, console.log) // 6 
+```

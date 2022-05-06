@@ -75,7 +75,7 @@
 * general 
     * Elements share the same parent
     * Second element comes after first element
-    * `h2 -p { color: red; }`
+    * `h2 - p { color: red; }`
     ```html
         <div>
             <h2>Not applied </h2>
@@ -121,3 +121,63 @@
 |#main-title|color|#fa923f
 |[disabled]|margin|10px
 |*|display|block
+
+
+## Box Model
+**Every element in HTML is interpreted as a box in CSS**
+### Padding
+space between an element's border and the element's content. Controls the space ***inside*** an element
+### Border
+sorrounds an element and comes directly after de padding
+### Margin
+space around and element's border, controls the space ***outside*** an element
+
+### Margin Collapsing
+if you got 2 elements next to each other with margins between them then it will be collapse into 1 **bigger margin wins**
+> if you want to get rid of this you need to use `margin-top` or `margin-bottom`
+
+## Shorthand Properties
+Combines values of multiple properties in a single property 
+
+## Box Sizing 
+*  `box-sizing: content-box` if we set width of height of the content, not including padding and border (default)
+*  `box-sizing: border-box` if we set width of height of the content, include border and padding (most used)
+
+> maybe the only part to use the universal selector `*` is when setting up the `box-sizing: border-box` 
+
+> margin is never included in the box-sizing
+
+## Display
+
+### Block-level elements
+* Are rendered as a block and will take all the available horizontal space
+* you can set margin-top and margin-bottom and two block-level elements will render in two diffrent lines
+
+### Inline elements
+* it will only take up the space they require to fit their content
+* it will fit into the same line (as long as the combined content doesn't take up the entire space in which case a line break would be added)
+* margin-top and margin-bottom have no efect in the element
+* padding-top and padding-bottom won't push the adjacent content away but they will do with the element border
+* width and height won't have effect, it is auto to take as much space as required by the content
+
+* inline
+    * display in the same line only occupying the space it requires (no margin, padding)
+* block
+    * takes the full entire width
+* inline-block
+    * only takes the space needed to show the element, but can also apply the margin and padding of a block
+
+### Display none vs visibility hidden
+In the case of `display: none`it will actually removes the element from the document flow, meaning that the element is not visible and it won't "block its position", other elements can (and will) take its place instead
+
+In the case of `visibility: hidden` the element is only hidden but will remain the place (the other elements won't fill the empty spot)
+
+## Pseudo classes 
+define style for a special state of an element ex `hover` in an anchor tag
+`:class name`
+## Pseudo elements
+define style of specific part of an element
+`::element name `
+
+## Properties worth to remember
+* **CORE PROPERTIES:** color, background-color, display, padding, border, margin, width, height

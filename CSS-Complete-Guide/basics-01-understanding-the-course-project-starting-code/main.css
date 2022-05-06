@@ -1,9 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
 body { /* global style*/ 
     font-family: 'Montserrat', sans-serif;
+    margin: 0;
 }
 
 #product-overview {
-    background: #ff1b68;
+    background: url("freedom.jpg");
+    /* border: 5px black solid; Shorthand properties */
+    width: 100%;
+    height: 528px;
+    padding: 10px;
 }
 
 .section-title {
@@ -15,3 +24,67 @@ body { /* global style*/
     /* font-family: sans-serif; [serif-sans-serif] this will select the default sans serif of the browser*/
     font-family: 'Anton', 'sans-serif ';
 }
+
+.main-header {
+    background: #2ddf5c;
+    padding: 8px 16px;
+    width: 100%;
+}
+
+.main-header > div {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.main-header__brand {
+    color: #0e4f1f;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.main-nav {
+    display: inline-block;
+    text-align: right;
+    width: calc(100% - 74px);
+    vertical-align: middle;
+}
+
+.main-nav__items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main-nav__item {
+    padding: 0px 16px;
+    display: inline-block;
+}
+
+.main-nav__item a {
+    text-decoration: none;
+    color: #0e4f1f;
+    font-weight: bold;
+    padding:3px 0;
+}
+
+.main-nav__item a:hover, 
+.main-nav__item a:active { /* a:hover is a pseudoclass*/
+    color: white;
+    border-bottom: 5px solid white;
+}
+
+.main-nav__item--cta a {
+    color: white;
+    background-color: #ff1b68;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.main-nav__item--cta a:hover,
+.main-nav__item--cta a:active {
+    color: #ff1b68;
+    background: white;
+    border: none;
+}
+

@@ -181,3 +181,21 @@ define style of specific part of an element
 
 ## Properties worth to remember
 * **CORE PROPERTIES:** color, background-color, display, padding, border, margin, width, height
+
+## Classes or ID Selectors
+
+### Classes
+* **DEFINITION:** `.some-class {...}`
+* Re-usable 
+* Allow you to "mark" and name things for styling purposes only
+
+### ID
+* **DEFINITION:** `#some-is {...}`
+* Only used once per page
+* Also got non-CSS meaning (e.g. on-page link)
+
+### !important
+* **DON'T USE !important** 
+* Overwrites specifity and all other selectors
+* Use specifity and rules to style the website according to the needs
+

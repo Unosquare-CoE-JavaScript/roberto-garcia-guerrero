@@ -231,3 +231,25 @@ z-index by default it has an auto value => 0
  ## stacking context
  Created when applying fixed / sticky or absolute / relative in combination with z-index
  Defines stacking behaviour of child elements
+
+ ## Backgrounds & images
+ background can be use with colors and images 
+background property is a shorthand property but it can be used with multiple properties like
+background-image -> set one or more background images
+background-color -> set a background color
+background-position -> set initial position, relative to background position layer (only to image)
+background-size -> set size of background image (only to image)
+background-repeat -> defines how background images are repeated (only to image)
+background-origin -> set background positioning area (only to image)
+background-clip -> define whether background extends underneath border
+background-attachment ->  sets the scrolling behavior of the background image
+
+ background image will be up the color
+ `cover` will fills all the container if it's smaller will zoom
+ `contain` ensure that the whole image will be shown not necessary to fill the container
+
+images => only height and widths but not so much positioning
+
+## filter
+change the visual appereance of an element 
+blur, brightness, contrast, drop-shadow, grayscale, hue-rotate, invert, opacity, saturate, sepia

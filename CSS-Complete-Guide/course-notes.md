@@ -199,3 +199,26 @@ define style of specific part of an element
 * Overwrites specifity and all other selectors
 * Use specifity and rules to style the website according to the needs
 
+## Positioning
+The **Document flow** is the normal HTML flow and the `position` property is default is `static` to follow the document flow
+
+> only depends on the viewport
+
+Posible values for position:
+* static 
+* absolute
+* relative 
+* fixed -> keeps the element fix to the position established
+* sticky *new value*
+
+> behaves like a inline element and the elements do not consider it
+> in order to apply the top, bottom, left, right you need to use a different value from default in the position property 
+
+* Possible places to move from position.
+top 
+bottom
+left 
+right
+
+z-index by default it has an auto value => 0
+

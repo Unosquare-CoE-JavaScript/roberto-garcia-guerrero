@@ -21,26 +21,26 @@
 ```
 
 ## Selectors
- * **elements**: set equal style for these elements
-     * You use the elements in the html like `<h1>` or `<section>`....
-    * In the CSS file you add the style like `h1 { ... }`
- * **class**: define a class and apply the style to elements that have the same style , adding class attribute 
-    * you can reuse the clasess in multiple elements
-    * you can also assign multiple classes witha a space between the classes= `class="section-title article-title`
-    * You define in the html the class like `..class="blog-post"....`
-    * In the CSS file you add the style like `.blog-post { ... }`
-* **universal** :using `*` to style everything in your html no matter class or element. 
-    * Very inneficient
-    * In the CSS file you add the style like `* { ... }`
-* **Id**: set style to one specfic element, an ID can only appear 1 time in the file 
-    * You define in the html the id like `..id="blog-post"....`
-    * In the CSS file you add the style like `#blog-post { ... }`
-* **attributes**: using html elements by the attribute they have. Set equal style to all elements with attributes
-    * You will take advantage of attributes of elements like Button that has `disabled` attributes
-    * In the CSS file you add the style like `[disabled] { ... }` 
+ + **elements**: set equal style for these elements
+    + You use the elements in the html like `<h1>` or `<section>`....
+    + In the CSS file you add the style like `h1 { ... }`
+ + **class**: define a class and apply the style to elements that have the same style , adding class attribute 
+    + you can reuse the clasess in multiple elements
+    + you can also assign multiple classes witha a space between the classes= `class="section-title article-title`
+    + You define in the html the class like `..class="blog-post"....`
+    + In the CSS file you add the style like `.blog-post { ... }`
++ **universal** :using `*` to style everything in your html no matter class or element. 
+    + Very inneficient
+    + In the CSS file you add the style like `* { ... }`
++ **Id**: set style to one specfic element, an ID can only appear 1 time in the file 
+    + You define in the html the id like `..id="blog-post"....`
+    + In the CSS file you add the style like `#blog-post { ... }`
++ **attributes**: using html elements by the attribute they have. Set equal style to all elements with attributes
+    + You will take advantage of attributes of elements like Button that has `disabled` attributes
+    + In the CSS file you add the style like `[disabled] { ... }` 
 
 ## Cascading
-* Multiple rules can apply to the same elements and create conflicts to know what rule should be apply and to solve this conflicts CSS uses **specifity**
++ Multiple rules can apply to the same elements and create conflicts to know what rule should be apply and to solve this conflicts CSS uses **specifity**
 
 ### Order of specifity (top to bottom)
 1. inline styles
@@ -50,17 +50,17 @@
 
 
 ## Inheritance
-* Means that element inherits styles from the parent element
-* It has a low specifity, any direct selection has more specifity and will override inheritance
++ Means that element inherits styles from the parent element
++ It has a low specifity, any direct selection has more specifity and will override inheritance
 
 ## Combinator
-* Allows to combine multiples selectors by adding the selectors like `#product-overview h1` and it will get more specifity 
-* Direct selectors are better than combinators in terms of performance
-* adjacent sibling
-    * assign the style to the selector that follows directly the first selector
-    * elements share the same parent
-    * second element comes **immediately** after first element
-    * `h2 + p { color: red; }`
++ Allows to combine multiples selectors by adding the selectors like `#product-overview h1` and it will get more specifity 
++ Direct selectors are better than combinators in terms of performance
++ adjacent sibling
+    + assign the style to the selector that follows directly the first selector
+    + elements share the same parent
+    + second element comes **immediately** after first element
+    + `h2 + p { color: red; }`
     ```html
         <div>
             <h2>Not applied </h2>
@@ -72,10 +72,10 @@
             <p>CSS applied</p>  <!-- STYLE APPLIED-->
         </div>
     ```
-* general 
-    * Elements share the same parent
-    * Second element comes after first element
-    * `h2 - p { color: red; }`
++ general 
+    + Elements share the same parent
+    + Second element comes after first element
+    + `h2 - p { color: red; }`
     ```html
         <div>
             <h2>Not applied </h2>
@@ -85,9 +85,9 @@
             <p>CSS applied</p>  <!-- STYLE APPLIED-->
         </div>
     ```
-* child
-    * second element is a direct child of the first element
-    * `div > p { color: red } `
++ child
+    + second element is a direct child of the first element
+    + `div > p { color: red } `
     ```html
         <div>
             <h2>Not applied </h2>
@@ -99,9 +99,9 @@
             <p>CSS applied</p>  <!-- STYLE APPLIED-->
         </div>
     ```
-* descendant
-    * Second element is a descendant of the first element
-    * `div p { color: red }`
++ descendant
+    + Second element is a descendant of the first element
+    + `div p { color: red }`
     ```html
         <div>
             <h2>Not applied </h2>
@@ -140,8 +140,8 @@ if you got 2 elements next to each other with margins between them then it will 
 Combines values of multiple properties in a single property 
 
 ## Box Sizing 
-*  `box-sizing: content-box` if we set width of height of the content, not including padding and border (default)
-*  `box-sizing: border-box` if we set width of height of the content, include border and padding (most used)
++  `box-sizing: content-box` if we set width of height of the content, not including padding and border (default)
++  `box-sizing: border-box` if we set width of height of the content, include border and padding (most used)
 
 > maybe the only part to use the universal selector `*` is when setting up the `box-sizing: border-box` 
 
@@ -150,22 +150,22 @@ Combines values of multiple properties in a single property
 ## Display
 
 ### Block-level elements
-* Are rendered as a block and will take all the available horizontal space
-* you can set margin-top and margin-bottom and two block-level elements will render in two diffrent lines
++ Are rendered as a block and will take all the available horizontal space
++ you can set margin-top and margin-bottom and two block-level elements will render in two diffrent lines
 
 ### Inline elements
-* it will only take up the space they require to fit their content
-* it will fit into the same line (as long as the combined content doesn't take up the entire space in which case a line break would be added)
-* margin-top and margin-bottom have no efect in the element
-* padding-top and padding-bottom won't push the adjacent content away but they will do with the element border
-* width and height won't have effect, it is auto to take as much space as required by the content
++ it will only take up the space they require to fit their content
++ it will fit into the same line (as long as the combined content doesn't take up the entire space in which case a line break would be added)
++ margin-top and margin-bottom have no efect in the element
++ padding-top and padding-bottom won't push the adjacent content away but they will do with the element border
++ width and height won't have effect, it is auto to take as much space as required by the content
 
-* inline
-    * display in the same line only occupying the space it requires (no margin, padding)
-* block
-    * takes the full entire width
-* inline-block
-    * only takes the space needed to show the element, but can also apply the margin and padding of a block
++ inline
+    + display in the same line only occupying the space it requires (no margin, padding)
++ block
+    + takes the full entire width
++ inline-block
+    + only takes the space needed to show the element, but can also apply the margin and padding of a block
 
 ### Display none vs visibility hidden
 In the case of `display: none`it will actually removes the element from the document flow, meaning that the element is not visible and it won't "block its position", other elements can (and will) take its place instead
@@ -180,41 +180,42 @@ define style of specific part of an element
 `::element name `
 
 ## Properties worth to remember
-* **CORE PROPERTIES:** color, background-color, display, padding, border, margin, width, height
++ **CORE PROPERTIES:** color, background-color, display, padding, border, margin, width, height
 
 ## Classes or ID Selectors
 
 ### Classes
-* **DEFINITION:** `.some-class {...}`
-* Re-usable 
-* Allow you to "mark" and name things for styling purposes only
++ **DEFINITION:** `.some-class {...}`
++ Re-usable 
++ Allow you to "mark" and name things for styling purposes only
 
 ### ID
-* **DEFINITION:** `#some-is {...}`
-* Only used once per page
-* Also got non-CSS meaning (e.g. on-page link)
++ **DEFINITION:** `#some-is {...}`
++ Only used once per page
++ Also got non-CSS meaning (e.g. on-page link)
 
 ### !important
-* **DON'T USE !important** 
-* Overwrites specifity and all other selectors
-* Use specifity and rules to style the website according to the needs
++ **DON'T USE !important** 
++ Overwrites specifity and all other selectors
++ Use specifity and rules to style the website according to the needs
 
 ## Positioning
 The **Document flow** is the normal HTML flow and the `position` property is default is `static` to follow the document flow
 
-> only depends on the viewport
-
 Posible values for position:
-* static 
-* absolute
-* relative 
-* fixed -> keeps the element fix to the position established
-* sticky *new value*
+> takes the element out of the document flow
++ static 
++ absolute ->
+    + if there's no parents with position property then it will be with the html
+    + if there's a parent with position property then the closest will be the context
++ relative  -> it's context is the same value from the current position
++ fixed -> keeps the element fix to the position established always is the viewport
++ sticky *new value*  -> combination of relative and fixed
 
 > behaves like a inline element and the elements do not consider it
 > in order to apply the top, bottom, left, right you need to use a different value from default in the position property 
 
-* Possible places to move from position.
++ Possible places to move from position.
 top 
 bottom
 left 
@@ -222,3 +223,11 @@ right
 
 z-index by default it has an auto value => 0
 
+`overflow: hidden`
++ the content will be "cut" if it's not inside the space of the parent element
++ if you set the overflow in the body it will be passed to the html element
+    + if you want to remove it you will need to add it to the `html` and `body`
+ 
+ ## stacking context
+ Created when applying fixed / sticky or absolute / relative in combination with z-index
+ Defines stacking behaviour of child elements

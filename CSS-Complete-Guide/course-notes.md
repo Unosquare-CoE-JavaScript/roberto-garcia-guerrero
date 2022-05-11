@@ -1,16 +1,16 @@
 ## CSS Styles
-* **DEFINITION:** Cascading style sheets
-* The file is parsed top to bottom
-* What you want to style is a `property`
-* A selector is a additional piece of information that tells css to which element in your DOM (body) you want assign the declaration
++ **DEFINITION:** Cascading style sheets
++ The file is parsed top to bottom
++ What you want to style is a `property`
++ A selector is a additional piece of information that tells css to which element in your DOM (body) you want assign the declaration
 
 
 ### Ways to style an html
-* In-style way: where you add the property inside of each html tag of the style you want to apply to the tag
++ In-style way: where you add the property inside of each html tag of the style you want to apply to the tag
     * This is not recommended because of readability and implementation as you will need to add it into each tag you will need the same
-* Style inside the html in the head section
++ Style inside the html in the head section
     * This will cause that the html need to re-download for every new page that makes slower 
-* **[RECOMMENDED]** With an external css file with extension `.css`
++ **[RECOMMENDED]** With an external css file with extension `.css`
 
 
 ```css
@@ -208,7 +208,7 @@ Posible values for position:
 + absolute ->
     + if there's no parents with position property then it will be with the html
     + if there's a parent with position property then the closest will be the context
-+ relative  -> it's context is the same value from the current position
++ relative  -> it's context is the same value from the current position to the containing block level element (ancestor)
 + fixed -> keeps the element fix to the position established always is the viewport
 + sticky *new value*  -> combination of relative and fixed
 
@@ -223,12 +223,12 @@ right
 
 z-index by default it has an auto value => 0
 
-`overflow: hidden`
+## **overflow: hidden**
 + the content will be "cut" if it's not inside the space of the parent element
 + if you set the overflow in the body it will be passed to the html element
     + if you want to remove it you will need to add it to the `html` and `body`
  
- ## stacking context
+ ## Stacking context
  Created when applying fixed / sticky or absolute / relative in combination with z-index
  Defines stacking behaviour of child elements
 
@@ -250,6 +250,43 @@ background-attachment ->  sets the scrolling behavior of the background image
 
 images => only height and widths but not so much positioning
 
-## filter
+## Filter
 change the visual appereance of an element 
 blur, brightness, contrast, drop-shadow, grayscale, hue-rotate, invert, opacity, saturate, sepia
+
+## Units available to use in html
+* px , % , rem (font size), em (font size), vh, vw 
+
+### Cotaining Box
++ It's the reference point when applying % units to an element
++ Depends on the position property applied to this element
++ Can be the closest ancestor or the viewport
+
+> In case an element and its ancestor use position `static/relative` => 100% height is not working and adding 100% height to all ancestors fixes this issue
+
+> Position `fixed/absolute` or using viewport units (vw or vh) as alternatives
+
+### Properties to use units and what to use in each case
++ font-size => rem (em => children only)
++ padding => rem
++ border => px
++ margin => rem
++ width => % or vw
++ height => % or vh
++ bottom => %
++ top => %
++ left => %
++ right => %
+
+> min/max (width/height) to restrict/limit the size of the element 
+
+how is the size calculated
++ absolute lengths => mostly ignore user settings 
+    + px
++ viewport lenghts => adjust to current viewport (visible part of the website)
+    + vh
++ font-relative lengths => adjust to default font size 
+    + rem, em
+
+> Size always depend on the font-size of the root element `rem` or the element itself `em`
+ 

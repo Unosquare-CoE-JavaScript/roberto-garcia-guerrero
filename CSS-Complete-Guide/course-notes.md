@@ -290,3 +290,18 @@ how is the size calculated
 
 > Size always depend on the font-size of the root element `rem` or the element itself `em`
  
+ ## Responsive Design
++ Required to ensure that our website looks beautiful on all devices
+ > 1 in = 2.54 => 96px
+
+ ### Available tools 
+ + `viewport`
+    + viewport adjust site to device size 
+    + translate hardware pixels to software pixels
+    + Properties
+        + The `initial-scale` property controls the zoom level when the page is first loaded. 
+        + The `maximum-scale`, `minimum-scale`, and `user-scalable` properties control how users are allowed to zoom the page in or out.
++ `media queries`
+    + change design depending on the size
+    + allow us to change properties and therefore the entire design depending on device widths/heights
+    + design changes defined by us

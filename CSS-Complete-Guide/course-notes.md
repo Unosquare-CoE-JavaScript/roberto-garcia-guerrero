@@ -305,3 +305,60 @@ how is the size calculated
     + change design depending on the size
     + allow us to change properties and therefore the entire design depending on device widths/heights
     + design changes defined by us
+
+## Advanced Attribute Selectors 
+```css
+    /* select elements with attribut type */
+    [type] {
+        color:red;
+    }
+```
+
+```css
+    /* select element with specific attribute value */
+    [type="email"] {
+        color:red;
+    }
+```
+
+```css
+    /* element with specific attribute value in list */
+    [lang~="en-us"] {
+        color:red;
+    }
+```
+
+```css
+    /* element with specific attribute value/Value */
+    [lang|~="en-us"] {
+        color:red;
+    }
+```
+
+```css
+    /* element with specific attribute value prefix */
+    [href^="#"] {
+        color:red;
+    }
+```
+
+```css
+    /* element with specific attribute value suffix */
+    [href$=".de"] {
+        color:red;
+    }
+```
+
+```css
+    /* element with at least one attribute value */
+    [src*="cdn"] {
+        color:red;
+    }
+```
+
+```css
+    /* check values case-insensitively */
+    [src*="cdn" i] {
+        color:red;
+    }
+```

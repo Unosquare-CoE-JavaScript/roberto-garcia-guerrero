@@ -362,3 +362,57 @@ how is the size calculated
         color:red;
     }
 ```
+
+## Flexbox
++ Modern way to change the way our elements are displayed 
++ add a property `display` with the value `flex` or `inline-flex` that will create a `flex container`
+    + `flex-direction` => default `row`
+    + `flex-wrap` => default `no-wrap`
+
+> Shorthand property for flex: **flex-flow: row wrap;**
++ the elements inside the `flex container`are called `flex items`
++ parent property
+    + flex-flow, justify-content, align-content, align-items
++ child property
+    + order, flex, align-self
+
++ Main axis Cross Axis 
+    + `flex-direction: row` => ROW DEFINE MAIN
+        + starting point for main axis left top corner (from left to right)
+        + have the same starting point as main axis (from top to bottom)
+    + `flex-direction: row-reverse` => ROW DEFINE MAIN
+        + starting point for main axis right top corner(from right to left)
+        + have the same starting point as main axis (from top to bottom)
+    + `flex-direction: column` => COLUMN DEFINE MAIN
+        + starting point for main axis left top corner (from top to bottom)
+        + have the same starting point as main axis (from left to right)
+    + `flex-direction: column-reverse`  => COLUMN DEFINE MAIN
+        + starting point for main axis left top corner (from bottom to top)
+        + have the same starting point as main axis (from left to right)
+
++ `align-items` => align items across the cross axis
++ `justify-items` => align items through the main axis
+
++ **flex-direction: row**
+    + `justify-content` => align items through the **X axis**
+    + `align-items` => align items through the **Y axis**
++ **flex-direction: column**
+    + `justify-content` => align items through the **Y axis**
+    + `align-items` => align items through the **X axis**
+
+`align-content` => align the content through the cross axis 
+
++ Flex items
+    > Can only be applied to flex items, so it needs a flex container
+
+
+    + `order` => allows us to change the order of the items, the bigger number the later will be position => default 0
+    + `align-self` => element position across the cross axis
+    + `flex-grow`=> default 0 => remaining space calculated divided by the number of `flex-grow` values of each item
+    + `flex-shrink` => default 1  => allows specify if it will shrink how much is allow to shrink comparing with other element.
+    + `flex-basis` => always refers to the main axis
+        + auto => will fallback to either width/height
+        + row => override width property
+        + column => override height property
+
+> shorthand for flex-grow, flex-shrink, flex-basis `flex: grow  shrink flex-basis`

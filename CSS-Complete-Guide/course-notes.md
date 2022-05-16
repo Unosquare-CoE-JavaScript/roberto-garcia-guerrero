@@ -416,3 +416,57 @@ how is the size calculated
         + column => override height property
 
 > shorthand for flex-grow, flex-shrink, flex-basis `flex: grow  shrink flex-basis`
+
+## CSS Grid
+
++ `display: grid` => becomes a grid the container and childs is set as part of the grid.
++ `grid-template-columns` => from default 1 column you can setup how many columns you want, setting the width of the columns
+    + to named the columns you should do it in front of  the definition of the width `[name_of_the_column]` if you want to add multiple names just with a space
++ `fr` => fraction remaining space will be divided into de fraction setup
++ `grid-template-row` => to specify the rows according to height and keeps growing if needed.
+    + to named the row you should do it in front of  the definition of the height `[name_of_the_row]` if you want to add multiple names just with a space
++ `grid-column-start` => say to the column where to start 
++ `grid-column-end` => tell the column where to end, default is to 1
+
+> shothand for **grid-column-start** and **grid-column-end** will be `grid-column: start / end`
+
++ `grid-row-start` => say to the row where to start 
++ `grid-row-end` => tell the row where to end, default is to 1
+
+> shothand for **grid-row-start** and **grid-row-end** will be `grid-row: start / end`
+
+> `grid-area` will work as a shorthand for all the properties it start with `grid-row-start` / `grid-column-start`/ `grid-row-end` / `grid-column-end`
+
++ `repeat()` => first value the times to repeat the next value(s)
+    + `repeat(4, 25%)` => will repeat 4 times 25%
++ `minmax()` => minimum value, maximum value
++ `span + #` => use the number of span to use 
+
+
+`grid-column-gap` (in the container of the grid) => This is how you can define the gaps of the columns
+`grid-row-gap` (in the container of the grid) => This is how you can define the gaps of the rows
+
+> shorthand for `grid-column-gap` and `grid-row-gap` with `grid-gap` first row and then column like `grid-gap: 20px 10px`
+
++ `grid-template-areas` for this it is needed to define by name the columns and rows of the element to occupy the page like 
+    
+```css
+    grid-template-areas: "header header header header "
+                         ". . main main "
+                         " footer footer footer footer ";
+
+```
+
+> the dot will work to not use any specific area.
+
+And in each element define the area like `grid-area: main`
+
++ `justify-items` (X)=>  positions the elements in their areas ex: `center` will center the items in the areas they occupy
++  `align-items` (Y)=>  positions the elements in their areas ex: `center` will center the items in the areas they occupy
++ `justify-content` (X) => position the element in the grid 
++ `align-content` (Y) => position the element in the  grid 
++ `justify-self` (X) => position individually the element in the grid
++ `justify-self` (Y) => position individually the element in the grid
+
++ `grid-auto-flow` => what to use when adding something new => default is row
++ `grid-auto-columns` or `grid-auto-rows` define the size of the column/row to the rows/columns that are automatically created.

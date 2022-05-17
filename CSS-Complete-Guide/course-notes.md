@@ -470,3 +470,32 @@ And in each element define the area like `grid-area: main`
 
 + `grid-auto-flow` => what to use when adding something new => default is row
 + `grid-auto-columns` or `grid-auto-rows` define the size of the column/row to the rows/columns that are automatically created.
+
+## CSS Variables
+```css
+    :root {
+        --my-color: #fa923f
+    }
+    .element-1 {
+        color: var(--my-color);
+    }
+    .element-2 {
+        color: var(--my-color);
+    }
+    .element-3 {
+        color: var(--my-color, #fa923f); /*fallback in case there's no variable my-color */
+    }
+``` 
+## Class Name 
+
++ Use kebab-case (with dashes) because CSS is case-insensitive
++ Name by feature
+
+### Block Element Modifier (BEM)
+
++ A uniform and consisten way of naming your CSS classes
++ **Format:** *.* *block* *__* *element* *--* *modifier*
+
++ Ex. 
+    + .menu-main__item--size-big
+    + .button--success

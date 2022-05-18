@@ -499,3 +499,17 @@ And in each element define the area like `grid-area: main`
 + Ex. 
     + .menu-main__item--size-big
     + .button--success
+
+## SASS / SCSS
++ Syntactically Awesome Style Shetts
++ Does not run in the browser and extends CSS (during development)
++ Compiled to CSS before production
+
+### Features
++ Nested Rules
++ Inheritance
++ Helper functions
++ Mixins
++ Contions & Loops
++ Partials
++ Variables

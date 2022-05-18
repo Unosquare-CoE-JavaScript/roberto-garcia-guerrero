@@ -1,0 +1,5 @@
+// $main-color: #521751; // starting variable with $
+$colors: (main: #521752, secondary: #fa923f);
+$border-default: 0.05rem solid map-get($colors, main); // list is a variable that holds multiple values
+$size-default: 1rem;
+$size-tiny: 0.2rem;

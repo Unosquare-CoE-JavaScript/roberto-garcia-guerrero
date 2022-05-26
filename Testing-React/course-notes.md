@@ -90,3 +90,38 @@
         + know which role to use: https://www.w3.org/TR/wai-aria/#role_definitions
         + Some elements already have  buil-in role
         + In case there's an element that should have a role it can be addedwith the attribute role=""
+
++ screen query methods with the template `command[All]ByQueryType`
+    + links:
+        + [https://testing-library.com/docs/dom-testing-library/api-queries]
+        + [https://testing-library.com/docs/react-testing-library/cheatsheet]
+        + [https://testing-library.com/docs/guide-which-query]
+    + command options: 
+        + get => expect element to be in DOM
+        + query => expect element not to be in DOM
+        + find => expect element to appear async
+    + [All] options:
+        + (exclude) => expect only one match
+        + (include) => expect more than one match
+    + QueryType options:
+        + Role => most preferred
+        + AltText => images
+        + Text => display images
+        + Form Elements:   
+            + PlaceholderText, LabelText, DisplayValue
+
++ `not wraped in act(...) warning`
+    + Link help: [https://kentcdodds.com/blog/fix-the-not-wrapped-in-act-warning]
+    + React updated element after test was finished
+        + some async event ocurred 
+    + Testing Library already does
+    + How to fix the error
+        + Know what changes after the test is over (async)
+        + Account the change in the tests by:
+            + awaiting the change
+            + asserting on it 
+
++ Mock Service Worker
+    + Link help: [mswjs.io/docs/getting-started/mocks/rest-api]
+    + The idea of mocking a service is to intercept network calls and return specified responses
+    + set up test conditions using server response

@@ -125,3 +125,5 @@
     + Link help: [mswjs.io/docs/getting-started/mocks/rest-api]
     + The idea of mocking a service is to intercept network calls and return specified responses
     + set up test conditions using server response
+
++ Every time you need to make something async and need to find something you should use `await` and `findBy`

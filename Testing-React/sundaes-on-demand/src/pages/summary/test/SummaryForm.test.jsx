@@ -1,23 +1,23 @@
-import { render, screen, waitForElementToBeRemoved } from '@testing-library/react'
-import SummaryForm from '../SummaryForm';
-import userEvent from '@testing-library/user-event'
+import { render, screen, waitForElementToBeRemoved } from "@testing-library/react"
+import SummaryForm from "../SummaryForm";
+import userEvent from "@testing-library/user-event"
 
-test('initial conditions', () => {
-    render (<SummaryForm />);
+test("initial conditions", () => {
+    render(<SummaryForm />);
 
-    const checkbox = screen.getByRole('checkbox', { name: 'I agree to Terms and Conditions' });
-    const button = screen.getByRole('button', { name: 'Confirm order' });
+    const checkbox = screen.getByRole("checkbox", { name: "I agree to Terms and Conditions" });
+    const button = screen.getByRole("button", { name: "Confirm order" });
 
     expect(checkbox).not.toBeChecked();
     expect(button).toBeDisabled();
 
 });
 
-test('Enable and disables button', () => {
-    render (<SummaryForm />);
+test("Enable and disables button", () => {
+    render(<SummaryForm />);
 
-    const checkbox = screen.getByRole('checkbox', { name: 'I agree to Terms and Conditions' });
-    const button = screen.getByRole('button', { name: 'Confirm order' });
+    const checkbox = screen.getByRole("checkbox", { name: "I agree to Terms and Conditions" });
+    const button = screen.getByRole("button", { name: "Confirm order" });
 
     userEvent.click(checkbox);
     expect(checkbox).toBeChecked();
@@ -28,7 +28,7 @@ test('Enable and disables button', () => {
 
 });
 
-test('popover responds to hover', async () => {
+test("popover responds to hover", async () => {
     render(<SummaryForm />);
     // popover start out  hidden
     const nullPopover = screen.queryByText(/no ice cream will actually be delivered/i);

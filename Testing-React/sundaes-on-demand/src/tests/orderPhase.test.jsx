@@ -5,7 +5,7 @@ import App from "../App";
 
 test("order phases for happy path", async () => {
   // render app
-  render(<App />);
+  const { unmount } = render(<App />);
 
   // add ice cream scoops and toppings
   const vainillaInput = await screen.findByRole("spinbutton", {
@@ -35,15 +35,15 @@ test("order phases for happy path", async () => {
   expect(toppingsHeading).toBeInTheDocument();
 
   // check summary options items
-  expect(screen.getByText('1 Vainilla')).toBeInTheDocument();
-  expect(screen.getByText('2 Chocolate')).toBeInTheDocument();
-  expect(screen.getByText('Cherries')).toBeInTheDocument();
+  expect(screen.getByText("1 Vainilla")).toBeInTheDocument();
+  expect(screen.getByText("2 Chocolate")).toBeInTheDocument();
+  expect(screen.getByText("Cherries")).toBeInTheDocument();
 
   // accept terms and conditions and lcik button to confirm order
-  const tcCheckbox = screen.getByRole('checkbox', { name: /terms and conditions/i});
+  const tcCheckbox = screen.getByRole("checkbox", { name: /terms and conditions/i });
   userEvent.click(tcCheckbox);
 
-  const confirmOrderButton = screen.getByRole('button', { name: /confirm order/i});
+  const confirmOrderButton = screen.getByRole("button", { name: /confirm order/i });
   userEvent.click(confirmOrderButton);
 
   // expect "loading" to show
@@ -51,28 +51,30 @@ test("order phases for happy path", async () => {
   expect(loading).toBeInTheDocument();
 
   // confirm order number on confirmation page
-  const thankYouHeader = await screen.findByRole('heading', {name: /thank you/i});
+  const thankYouHeader = await screen.findByRole("heading", { name: /thank you/i });
   expect(thankYouHeader).toBeInTheDocument();
 
   // expect that loading has disappeared
-  const notLoading = screen.queryByText('loading');
+  const notLoading = screen.queryByText("loading");
   expect(notLoading).not.toBeInTheDocument();
 
   const orderNumber = await screen.findByText(/order number/i);
   expect(orderNumber).toBeInTheDocument();
 
   // click "new order" button on confirmation page
-  const newOrderButton = screen.getByRole('button', {name: /new order/i});
+  const newOrderButton = screen.getByRole("button", { name: /new order/i });
   userEvent.click(newOrderButton);
 
   // check that scoops and toppings subtotals have been reset
-  const scoopsTotal = screen.getByText('Scoops total: $0.00');
+  const scoopsTotal = screen.getByText("Scoops total: $0.00");
   expect(scoopsTotal).toBeInTheDocument();
-  const toppingsTotal = screen.getByText('Scoops total: $0.00');
+  const toppingsTotal = screen.getByText("Scoops total: $0.00");
   expect(toppingsTotal).toBeInTheDocument();
 
-  await screen.findByRole('spinbutton', {name: 'Vainilla'});
-  await screen.findByRole('checkbox', {name: 'Cherries'});
+  await screen.findByRole("spinbutton", { name: "Vainilla" });
+  await screen.findByRole("checkbox", { name: "Cherries" });
+
+  unmount();
 });
 
 test("Toppings header is not on summary page if no toppings ordered", async () => {
@@ -86,7 +88,7 @@ test("Toppings header is not on summary page if no toppings ordered", async () =
   userEvent.clear(vanillaInput);
   userEvent.type(vanillaInput, "1");
 
-  const chocolateInput = screen.getByRole("spinbutton", {name: "Chocolate"});
+  const chocolateInput = screen.getByRole("spinbutton", { name: "Chocolate" });
   userEvent.clear(chocolateInput);
   userEvent.type(chocolateInput, "2");
 
@@ -96,9 +98,9 @@ test("Toppings header is not on summary page if no toppings ordered", async () =
   });
   userEvent.click(orderSummaryButton);
 
-  const scoopsHeading = screen.getByRole("heading", {name: "Scoops: $6.00"});
+  const scoopsHeading = screen.getByRole("heading", { name: "Scoops: $6.00" });
   expect(scoopsHeading).toBeInTheDocument();
 
-  const toppingsHeading = screen.queryByRole("heading", {name: /toppings/i});
+  const toppingsHeading = screen.queryByRole("heading", { name: /toppings/i });
   expect(toppingsHeading).not.toBeInTheDocument();
 });

@@ -2,13 +2,16 @@ import { useState } from "react";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
+import { useOrderDetails } from "../../contexts/OrderDetails";
 
-export default function ScoopOptions({ name, imagePath, updateItemCount }) {
+export default function ScoopOptions({ name, imagePath }) {
   const [isValid, setIsValid] = useState(true);
+  const { updateItemCount } = useOrderDetails();
+
   const handleChange = (event) => {
     const currentValue = event.target.value;
 
-    // make sure we're using a number and not a string to validate
+    // make sure we"re using a number and not a string to validate
     const currentValueFloat = parseFloat(currentValue);
     const valueIsValid =
       0 <= currentValueFloat &&
@@ -18,8 +21,9 @@ export default function ScoopOptions({ name, imagePath, updateItemCount }) {
     // validate
     setIsValid(valueIsValid);
 
-    // only update context if the value is valid
-    if (valueIsValid) updateItemCount(name, currentValue);
+    // adjust scoop count with currentValue if it"s valid; 0 if it"s not
+    const newValue = valueIsValid ? parseInt(currentValue) : 0;
+    updateItemCount(name, newValue, "scoops")
   };
 
   return (
@@ -30,12 +34,12 @@ export default function ScoopOptions({ name, imagePath, updateItemCount }) {
         alt={`${name} scoop`}
       />
       <Form.Group controlId={`${name}-count`} as={Row} style={{ marginTop: "10px" }}>
-        <Form.Label column xs='6' style={{ textAlign: "right" }}>
+        <Form.Label column xs="6" style={{ textAlign: "right" }}>
           {name}
         </Form.Label>
-        <Col xs='5' style={{ textAlign: "left" }}>
+        <Col xs="5" style={{ textAlign: "left" }}>
           <Form.Control
-            type='number'
+            type="number"
             defaultValue={0}
             onChange={handleChange}
             isInvalid={!isValid}

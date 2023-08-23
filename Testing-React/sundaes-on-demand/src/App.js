@@ -1,34 +1,35 @@
-import { useState } from 'react';
-import Container from 'react-bootstrap/Container';
+import { useState } from "react";
+import Container from "react-bootstrap/Container";
 
-import OrderConfirmation from './pages/confirmation/OrderConfirmation';
-import OrderEntry from './pages/entry/OrderEntry'
-import OrderSummary from './pages/summary/OrderSummary';
-import { OrderDetailsProvider } from './context/OrderDetails';
+import OrderConfirmation from "./pages/confirmation/OrderConfirmation";
+import OrderEntry from "./pages/entry/OrderEntry";
+import OrderSummary from "./pages/summary/OrderSummary";
+import { OrderDetailsProvider } from "./contexts/OrderDetails";
 
 export default function App() {
-  const [orderPhase, setOrderPhase] = useState('inProgress');
+  const [orderPhase, setOrderPhase] = useState("inProgress");
 
   let Component = OrderEntry;
 
-  switch(orderPhase) {
-    case 'inProgress':
+  switch (orderPhase) {
+    case "inProgress":
       Component = OrderEntry;
       break;
-    case 'review':
+    case "review":
       Component = OrderSummary;
       break;
-    case 'completed':
+    case "completed":
       Component = OrderConfirmation;
       break;
-      default:
+    default:
   }
 
-
   return (
-      <OrderDetailsProvider>
-        {/* Summary page and entry page need provider */}
-        <Container><Component setOrderPhase={setOrderPhase}/> </Container>
-      </OrderDetailsProvider>
+    <OrderDetailsProvider>
+      {/* Summary page and entry page need provider */}
+      <Container>
+        <Component setOrderPhase={setOrderPhase} />{" "}
+      </Container>
+    </OrderDetailsProvider>
   );
 }

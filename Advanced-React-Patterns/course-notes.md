@@ -40,7 +40,7 @@ It's a function that takes a component and returns another component
 ### Rules of hooks
 
 - Only call hooks at the top level i.e not within conditionals, loops or nested functions
-- Only call hookf from react functions, i.e. functional components and custom hooks
+- Only call hook from react functions, i.e. functional components and custom hooks
 
 ## Compound components
 

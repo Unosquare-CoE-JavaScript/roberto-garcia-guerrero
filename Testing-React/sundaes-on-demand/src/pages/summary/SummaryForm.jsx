@@ -46,7 +46,3 @@ export default function SummaryForm({ setOrderPhase }) {
     </Form>
   );
 }
-
-//  <Popover.Content>No ice cream will actually be delivered</Popover.Content>
-
-// <Popover.Body>No ice cream will actually be delivered</Popover.Body>
